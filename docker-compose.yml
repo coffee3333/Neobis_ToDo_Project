@@ -1,0 +1,21 @@
+services:
+  web:
+    build: .
+    environment:
+      MYENV: EXAMPLE
+    volumes:
+      - .:/code
+  web_migrations:
+    extends:
+      service: web
+    command: python /app/source/manage.py makemigrations
+  web_migrate:
+    extends:
+      service: web
+    command: python /app/source/manage.py migrate
+  web_run:
+    extends:
+      service: web
+    command: python /app/source/manage.py runserver 0.0.0.0:3000
+    ports:
+      - "3000:3000"
