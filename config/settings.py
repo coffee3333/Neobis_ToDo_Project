@@ -142,3 +142,5 @@ SWAGGER_SETTINGS = {
         },
     },
 }
+
+ALLOWED_HOSTS = ['172.233.60.215', 'localhost', '127.0.0.1', '0.0.0.0']
